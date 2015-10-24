@@ -458,10 +458,10 @@ Tras ejecutar mov saludo, %ecx ECX contiene la direccion de memoria donde empiez
 	.
 	.
 |----------------- |
-| 			       |
-|   		       |
-|     			   |
-|   28 			   |0x80a038
+| 	0x00	       |0x80a03b
+|   0x00	       |0x80a03a
+|   0x00		   |0x80a039
+|   0x1c 		   |0x80a038
 |----------------- |
 |   \n 			   |0x80a037
 |   !  			   |0x80a036
@@ -509,15 +509,42 @@ Al modificar el programa, el registro %ecx tiene el valor: 0x616cf48 que efictiv
 ![p2-2](https://github.com/NAEL1/EC/blob/master/practica2/pr2-2.png)
 
 
-####4 ¿Cuántas posiciones de memoria ocupa la variable longsaludo? ¿Y la variable saludo? ¿Cuántos bytes ocupa por tanto la sección de datos? Comprobar con un volcado Data»>Memory TÏIGYOIT que la zona de datos antes de hacer Run.
+####4 ¿Cuántas posiciones de memoria ocupa la variable longsaludo? ¿Y la variable saludo? ¿Cuántos bytes ocupa por tanto la sección de datos? Comprobar con un volcado Data->Memory mayor que la zona de datos antes de hacer Run.
+ longsaludo ocupa 4 bytes.
+ saludo ocupa 28 bytes.
+ por lo tanto la seccion datos ocupa 32 bytes
 
 ####5 Añadir dos volcados Data»>Memory dela variable longsaludo, uno como entero hexadecilmal, y otro como 4 bytes hex. Teniendo en cuenta lo mostrado en esos volcados... ¿Qué direcciones de memoria ocupa longsaludo? ¿Cuál byte está en la primera posición, el más o el menos significativo? ¿Los procesadores de la línea x86 usan el criterio del extremo mayor (bigendian) o menor (little»endian)? Razonar la respuesta
 
 ####6 ¿Cuántas posiciones de memoria ocupa la instrucción mov S1, %ebx? ¿Cómo se ha obtenido esa información? Indicar las posiciones concretas en hexadecimal.
 
 ####7 ¿Qué sucede si se elimina del programa la primera instrucción int 0x80? ¿Y si se elimina la segunda? Razonar las respuestas
+si se elimina del programa la primera instrucción int 0x80 no se llamara a la funcion Write
 
 ####8 ¿Cuál es el número de la llamada al sistema READ (en kernel Linux 32bits)? ¿De dónde se ha obtenido esa información?
+
+mov $3 , %eax
+mov $? , %ebx 	donde $? es el descriptor del fichero(por ejemplo $2 para el teclado)
+mov num, %ecx 	dinde num es el puntero al buffer deentrada
+mov $? , %edx 	donde $? es el tamaño  del buffer(por ejemplo para int seria $5 : 1 byte para el signo y 4 para el entero)
+int $0x80 	trampa de S.O.
+
+el sistema escribira en %eax en numero de byte leido o el codigo de error en el caso de haya fallado la lectura
+
+Reading from a File
+
+For reading from a file, perform the following tasks −
+
+    Put the system call sys_read() number 3, in the EAX register.
+
+    Put the file descriptor in the EBX register.
+
+    Put the pointer to the input buffer in the ECX register.
+
+    Put the buffer size, i.e., the number of bytes to read, in the EDX register.
+
+Solucion obtenida de la pagina http://www.tutorialspoint.com/assembly_programming/assembly_file_management.htm
+
 
 
 ###Sesión de depuración suma.s
