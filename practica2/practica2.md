@@ -429,7 +429,7 @@ bucle:
 ####1 ¿Qué contiene EDX tras ejecutar mov longsaludo, %edx? ¿Para qué necesitamos esa instrucción, o ese valor? Responder no sólo el valor concreto (en decimal y hex) sino también el significado del mismo (¿de dónde sale?) Comprobar que se corresponden los valores hexadecimal y decimal mostrados en la ventana Status»>Registers
 
 Tras ejecutar mov longsaludo, %edx  EDX contiene  0x1c ò 28 que es la longitud del String saludo , la necesitamos como argumento de la funcion write.
-![pr2-1]()
+![pr2-1](https://github.com/NAEL1/EC/blob/master/practica2/pr2-1.png)
 
 ####2 ¿Qué contiene ECX tras ejecutar mov saludo, %ecx? Indicar el valor en hexadecimal, y el significado del mismo. Realizar un dibujo a escala de la memoria del programa, indicando dónde empieza el programa (_start, .text), dónde empieza saludo (.data), y dónde está el tope de pila (%esp)
 
@@ -500,7 +500,14 @@ Tras ejecutar mov saludo, %ecx ECX contiene la direccion de memoria donde empiez
 |----------------- |
 
 ```
-####3 ¿Qué sucede si se elimina el símbolo de dato ¡Inmediato (S) de la instrucciór anterior? (moiv saludo, %ecx) Realizar la modificación, indicar el contenido de ECX en hexadecimal, explicar por qué no es lo mismo en ambos casos. Concretar de dónde viene el nuevo valor (obtenido sin usar S)
+####3 ¿Qué sucede si se elimina el símbolo de dato inmediato ($) de la instrucciór anterior? (moiv saludo, %ecx) Realizar la modificación, indicar el contenido de ECX en hexadecimal, explicar por qué no es lo mismo en ambos casos. Concretar de dónde viene el nuevo valor (obtenido sin usar S)
+
+Si se elimina el símbolo de dato inmediato ($) de la instrucciór anterior, en vez de poner la dirrecion de memoria del String saludo en ECX te ententara llenar el regsitro con los 4 primeros caracteres des String asi que se metera el equivalente hexadicimal( a(0x61) , l(0x6c) , o(0x6f) ,l(0x46) ) de los 4 caracteres en ECX  por lo que al llamar a Write  ententara escribir en la salida estandar 28 caracteres empezando por la posicion de memoria de ECX que es la combinacion de los 4 caracteres
+
+Al modificar el programa, el registro %ecx tiene el valor: 0x616cf48 que efictivamente corresponde a nuetras supociciones,
+
+![p2-2](https://github.com/NAEL1/EC/blob/master/practica2/pr2-2.png)
+
 
 ####4 ¿Cuántas posiciones de memoria ocupa la variable longsaludo? ¿Y la variable saludo? ¿Cuántos bytes ocupa por tanto la sección de datos? Comprobar con un volcado Data»>Memory TÏIGYOIT que la zona de datos antes de hacer Run.
 
