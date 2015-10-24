@@ -510,9 +510,9 @@ Al modificar el programa, el registro %ecx tiene el valor: 0x616cf48 que efictiv
 
 
 ####4 ¿Cuántas posiciones de memoria ocupa la variable longsaludo? ¿Y la variable saludo? ¿Cuántos bytes ocupa por tanto la sección de datos? Comprobar con un volcado Data->Memory mayor que la zona de datos antes de hacer Run.
- longsaludo ocupa 4 bytes.
- saludo ocupa 28 bytes.
- por lo tanto la seccion datos ocupa 32 bytes
+ 	longsaludo ocupa 4 bytes.
+ 	saludo ocupa 28 bytes.
+ 	por lo tanto la seccion datos ocupa 32 bytes
 
 ####5 Añadir dos volcados Data»>Memory dela variable longsaludo, uno como entero hexadecilmal, y otro como 4 bytes hex. Teniendo en cuenta lo mostrado en esos volcados... ¿Qué direcciones de memoria ocupa longsaludo? ¿Cuál byte está en la primera posición, el más o el menos significativo? ¿Los procesadores de la línea x86 usan el criterio del extremo mayor (bigendian) o menor (little»endian)? Razonar la respuesta
 
