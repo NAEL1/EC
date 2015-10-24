@@ -420,3 +420,23 @@ bucle:
 	ret 					# devolver el control al programa
 
 ```
+
+
+## preguntas del guión de la práctica de la sección 5.0 (apéndice 3):
+
+
+####1 ¿Qué contiene EDX tras ejecutar mov longsaludo, %edx? ¿Para qué necesitamos esa instrucción, o ese valor? Responder no sólo el valor concreto (en decimal y hex) sino también el significado del mismo (¿de dónde sale?) Comprobar que se corresponden los valores hexadecimal y decimal mostrados en la ventana Status»>Registers
+
+####2 ¿Qué contiene ECX tras ejecutar mov Ssaludo, %ecx? Indicar el valor en hexadecimal, y el significado del mismo. Realizar un dibujo a escala de la memoria del programa, indicando dónde empieza el programa (_start, .text), dónde empieza saludo (.data), y dónde está el tope de pila (%esp)
+
+####3 ¿Qué sucede si se elimina el símbolo de dato ¡Inmediato (S) de la instrucciór anterior? (moiv saludo, %ecx) Realizar la modificación, indicar el contenido de ECX en hexadecimal, explicar por qué no es lo mismo en ambos casos. Concretar de dónde viene el nuevo valor (obtenido sin usar S)
+
+####4 ¿Cuántas posiciones de memoria ocupa la variable longsaludo? ¿Y la variable saludo? ¿Cuántos bytes ocupa por tanto la sección de datos? Comprobar con un volcado Data»>Memory TÏIGYOIT que la zona de datos antes de hacer Run.
+
+####5 Añadir dos volcados Data»>Memory dela variable longsaludo, uno como entero hexadecilmal, y otro como 4 bytes hex. Teniendo en cuenta lo mostrado en esos volcados... ¿Qué direcciones de memoria ocupa longsaludo? ¿Cuál byte está en la primera posición, el más o el menos significativo? ¿Los procesadores de la línea x86 usan el criterio del extremo mayor (bigendian) o menor (little»endian)? Razonar la respuesta
+
+####6 ¿Cuántas posiciones de memoria ocupa la instrucción mov S1, %ebx? ¿Cómo se ha obtenido esa información? Indicar las posiciones concretas en hexadecimal.
+
+####7 ¿Qué sucede si se elimina del programa la primera instrucción int 0x80? ¿Y si se elimina la segunda? Razonar las respuestas
+
+####8 ¿Cuál es el número de la llamada al sistema READ (en kernel Linux 32bits)? ¿De dónde se ha obtenido esa información?
