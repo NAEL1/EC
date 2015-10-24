@@ -424,6 +424,7 @@ bucle:
 
 ## preguntas del guión de la práctica de la sección 5.0 (apéndice 3):
 
+###Sesión de depuración saludo.s
 
 ####1 ¿Qué contiene EDX tras ejecutar mov longsaludo, %edx? ¿Para qué necesitamos esa instrucción, o ese valor? Responder no sólo el valor concreto (en decimal y hex) sino también el significado del mismo (¿de dónde sale?) Comprobar que se corresponden los valores hexadecimal y decimal mostrados en la ventana Status»>Registers
 
@@ -440,3 +441,26 @@ bucle:
 ####7 ¿Qué sucede si se elimina del programa la primera instrucción int 0x80? ¿Y si se elimina la segunda? Razonar las respuestas
 
 ####8 ¿Cuál es el número de la llamada al sistema READ (en kernel Linux 32bits)? ¿De dónde se ha obtenido esa información?
+
+
+###Sesión de depuración suma.s
+
+####1 ¿Cuál es el contenido de EAXjusto antes de ejecutar la instrucción RET, para esos componentes de lista concretos? Razonar la respuesta, incluyendo cuánto valen 0b10, 0x10, y (.-Lista)/4
+
+####2 ¿Qué valor en hexadecimal se obtiene en resultado si se usa la lista de 3 elementos: .int Oxffffffff, Oxffffffff, Oxffffffff? ¿Por qué es diferente del que se obtiene haciendo la suma a mano? NOTA: Indicar qué valores va tomando EAX en cada iteración del bucle, como los muestra la ventana Status»>Registers, en hexadecimal y decimal (con signo). Fijarse también en si se van activando los flags CF y OF o no tras cada suma. Indicar también qué valor muestra resultado si se vuelca con Data»>Memory como decimal (con signo) o unsigned (sin signo).
+
+####3 ¿Qué dirección se le ha asignado ala etiqueta suma? ¿Y a bucle? ¿Cómo se ha obtenido esa información?
+
+####4 ¿Para qué usa el procesador los registros EIP y ESP?
+
+####5 ¿Cuál es el valor de ESP antes de ejecutar CALL, y cuál antes de ejecutar RET? ¿En cuánto se diferencian ambos valores? ¿Por qué? ¿Cuál de los dos valores de ESP apunta a algún dato de interés para nosotros? ¿Cuál es ese dato?
+
+####6 ¿Qué registros modifica la instrucción CALL? Explicar por qué necesita CALL modificar esos registros
+
+####7 ¿Qué registros modifica la instrucción RET? Explicar por qué necesita RET modificar esos registros
+
+####8 Indicar qué valores se introducen en la pila durante la ejecución del programa, y en qué direcciones de memoria queda cada uno. Realizar un dibujo de la pila con dicha información. NOTA: en los volcados Data-> Memory se puede usar Sesp para referirse a donde apunta el registro ESP
+
+####9 ¿Cuántas posiciones de memoria ocupa la instrucción mov $0, %edx? ¿Y la instrucción ilnc %edx? ¿Cuáles son sus respectivos códigos máquina? Indicar cómo se han obtenido. NOTA: en los volcados Data»> Memory se puede usar una dirección hexadecimal Ox... para indicar la dirección del volcado. Recordar la ventana View»>Machine Code Window. Recordar también la herramienta objdump.
+
+####10 ¿Qué ocurriría si se eliminara la instrucción RET? Razonar la respuesta. Comprobarlo usando ddd
