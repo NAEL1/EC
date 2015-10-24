@@ -436,56 +436,68 @@ Tras ejecutar mov longsaludo, %edx  EDX contiene  0x1c ò 28 que es la longitud 
 Tras ejecutar mov saludo, %ecx ECX contiene la direccion de memoria donde empieza el String saludo, el valor hexadecimal de %ecx es 0x804a01c
 
 ```
-|      |
-|      |
-|      |
-|      |
-|------|
-|      |
-|      |
-|      |
-|      |
-|------|
-|      |
-|      |
-|      |
-|   28 |0x80a038
-|------|
-|   \n |0x80a037
-|   !  |0x80a036
-|   d  |0x80a035
-|   l  |0x80a034
-|------|
-|   r  |0x80a033
-|   o  |0x80a032
-|   w  |0x80a031
-|   \b |0x80a030
-|------|
-|   ,  |0x80a02f
-|   o  |0x80a02e
-|   l  |0x80a02d
-|   l  |0x80a02c
-|------|
-|   e  |0x80a02b
-|   h  |0x80a02a
-|   \n |0x80a029
-|   !  |0x80a028
-|------|
-|   s  |0x80a027
-|   o  |0x80a026
-|   d  |0x80a025
-|   o  |0x80a024
-|------|
-|   t  |0x80a023
-|   \b |0x80a022
-|   a  |0x80a021
-|   \b |0x80a020
-|------|
-|   a  |0x80a01f
-|   l  |0x80a01e
-|   o  |0x80a01d
-|   h  |0x80a01c
-|------|
+	.
+	.
+	.
+	.
+|int $0x80		   |0x80483f5
+|------------------|
+|				   |0x80483f4
+|movlongsaludo,%edx|0x80483f3
+|				   |0x80483f2
+|mov $saludo,%ecx  |0x80483f1
+|------------------|
+|				   |0x80483f0
+|mov $1, %ebx	   |0x80483ef
+|				   |0x80483ee
+|mov $4, %eax      |0x80483ed  _start ó .text ó main   (suponemos que cada operacion ocupa 2byte aunque sabemos que varia
+|----------------- |									dependiendo de la operacion )
+
+	.
+	.
+	.
+	.
+|----------------- |
+| 			       |
+|   		       |
+|     			   |
+|   28 			   |0x80a038
+|----------------- |
+|   \n 			   |0x80a037
+|   !  			   |0x80a036
+|   d 			   |0x80a035
+|   l  			   |0x80a034
+|----------------- |
+|   r  			   |0x80a033
+|   o 		       |0x80a032
+|   w  			   |0x80a031
+|   \b 			   |0x80a030
+|----------------- |
+|   ,  			   |0x80a02f
+|   o 			   |0x80a02e
+|   l  			   |0x80a02d
+|   l 			   |0x80a02c
+|----------------- |
+|   e  			   |0x80a02b
+|   h  			   |0x80a02a
+|   \n 			   |0x80a029
+|   !  			   |0x80a028
+|----------------- |
+|   s 			   |0x80a027
+|   o    		   |0x80a026
+|   d  			   |0x80a025
+|   o   		   |0x80a024
+|----------------- |
+|   t  			   |0x80a023
+|   \b 			   |0x80a022
+|   a  		 	   |0x80a021
+|   \b 			   |0x80a020
+|----------------- |
+|   a  			   |0x80a01f
+|   l 			   |0x80a01e
+|   o  		 	   |0x80a01d
+|   h  			   |0x80a01c
+|----------------- |
 
 ```
 ####3 ¿Qué sucede si se elimina el símbolo de dato ¡Inmediato (S) de la instrucciór anterior? (moiv saludo, %ecx) Realizar la modificación, indicar el contenido de ECX en hexadecimal, explicar por qué no es lo mismo en ambos casos. Concretar de dónde viene el nuevo valor (obtenido sin usar S)
