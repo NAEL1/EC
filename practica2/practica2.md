@@ -428,8 +428,66 @@ bucle:
 
 ####1 ¿Qué contiene EDX tras ejecutar mov longsaludo, %edx? ¿Para qué necesitamos esa instrucción, o ese valor? Responder no sólo el valor concreto (en decimal y hex) sino también el significado del mismo (¿de dónde sale?) Comprobar que se corresponden los valores hexadecimal y decimal mostrados en la ventana Status»>Registers
 
-####2 ¿Qué contiene ECX tras ejecutar mov Ssaludo, %ecx? Indicar el valor en hexadecimal, y el significado del mismo. Realizar un dibujo a escala de la memoria del programa, indicando dónde empieza el programa (_start, .text), dónde empieza saludo (.data), y dónde está el tope de pila (%esp)
+Tras ejecutar mov longsaludo, %edx  EDX contiene  0x1c ò 28 que es la longitud del String saludo , la necesitamos como argumento de la funcion write.
+![pr2-1]()
 
+####2 ¿Qué contiene ECX tras ejecutar mov saludo, %ecx? Indicar el valor en hexadecimal, y el significado del mismo. Realizar un dibujo a escala de la memoria del programa, indicando dónde empieza el programa (_start, .text), dónde empieza saludo (.data), y dónde está el tope de pila (%esp)
+
+Tras ejecutar mov saludo, %ecx ECX contiene la direccion de memoria donde empieza el String saludo, el valor hexadecimal de %ecx es 0x804a01c
+
+```
+|      |
+|      |
+|      |
+|      |
+|------|
+|      |
+|      |
+|      |
+|      |
+|------|
+|      |
+|      |
+|      |
+|   28 |0x80a038
+|------|
+|   \n |0x80a037
+|   !  |0x80a036
+|   d  |0x80a035
+|   l  |0x80a034
+|------|
+|   r  |0x80a033
+|   o  |0x80a032
+|   w  |0x80a031
+|   \b |0x80a030
+|------|
+|   ,  |0x80a02f
+|   o  |0x80a02e
+|   l  |0x80a02d
+|   l  |0x80a02c
+|------|
+|   e  |0x80a02b
+|   h  |0x80a02a
+|   \n |0x80a029
+|   !  |0x80a028
+|------|
+|   s  |0x80a027
+|   o  |0x80a026
+|   d  |0x80a025
+|   o  |0x80a024
+|------|
+|   t  |0x80a023
+|   \b |0x80a022
+|   a  |0x80a021
+|   \b |0x80a020
+|------|
+|   a  |0x80a01f
+|   l  |0x80a01e
+|   o  |0x80a01d
+|   h  |0x80a01c
+|------|
+
+```
 ####3 ¿Qué sucede si se elimina el símbolo de dato ¡Inmediato (S) de la instrucciór anterior? (moiv saludo, %ecx) Realizar la modificación, indicar el contenido de ECX en hexadecimal, explicar por qué no es lo mismo en ambos casos. Concretar de dónde viene el nuevo valor (obtenido sin usar S)
 
 ####4 ¿Cuántas posiciones de memoria ocupa la variable longsaludo? ¿Y la variable saludo? ¿Cuántos bytes ocupa por tanto la sección de datos? Comprobar con un volcado Data»>Memory TÏIGYOIT que la zona de datos antes de hacer Run.
