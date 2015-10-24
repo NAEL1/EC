@@ -44,7 +44,7 @@ suma:
 	mov $0, %edx	  # ponemos a cero el registro auxiliar (parte alta)
 	mov $0, %esi      # poner a cero los primeros 32 bits del acumulador
 	mov $0, %edi	  # poner a cero los ultimos 32 bits del acumulador
-	mov $0 , %ebp     # poner a cero el indice
+	mov $0, %ebp     # poner a cero el indice
 bucle:
 	mov (%ebx,%ebp,4), %eax # ponemos el elemento i-esimo en el registro auxiliar
 	cltd					# extendemos el bit de signa a la parte alta del registro auxiliar( poner los 32 bits de %edx cn el valor del bit de signo de %eax)
