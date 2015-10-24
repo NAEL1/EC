@@ -41,7 +41,7 @@ main:	.global main
 
 suma:
 	push %esi      # preservar  %esi
-	mov $0, %eax   # poner a cero los primeros 32 bits del acumilador
+	mov $0, %eax   # poner a cero los primeros 32 bits del acumulador
 	mov $0, %esi   # poner a cero el indice
 	mov $0, %edx   # poner a cero los ultimos 32 bits del acumulador
 bucle:
