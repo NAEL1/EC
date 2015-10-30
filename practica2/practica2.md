@@ -568,9 +568,21 @@ Solucion obtenida de la pagina http://www.tutorialspoint.com/assembly_programmin
 
 ###Sesión de depuración suma.s
 
-####1 ¿Cuál es el contenido de EAXjusto antes de ejecutar la instrucción RET, para esos componentes de lista concretos? Razonar la respuesta, incluyendo cuánto valen 0b10, 0x10, y (.-Lista)/4
+####1 ¿Cuál es el contenido de EAX justo antes de ejecutar la instrucción RET, para esos componentes de lista concretos? Razonar la respuesta, incluyendo cuánto valen 0b10, 0x10, y (.-Lista)/4
+
+El registro EAX contenia 37 justo antes de ejecutar la instruccion  RET, ya que contenia la suma de los elementos de lista:
+.int 1,2,10, 1,2,0b10, 1,2,0x10 
+siengo 0b10 2 ya que 10 es la representacion en binario de 2 y 0x10 vale 16 ya que esta en hexadecimal.
+(.Lista)/4  vale 9 que es : "." es la direccion actual, entonces cuenta la memoria ocupada entre la direcion actual y la etiqueta Lista que nos daria 36 Bytes  y se divide por 4 ya que cada elemento de la lista ocupa 4 Byte (.int)
 
 ####2 ¿Qué valor en hexadecimal se obtiene en resultado si se usa la lista de 3 elementos: .int Oxffffffff, Oxffffffff, Oxffffffff? ¿Por qué es diferente del que se obtiene haciendo la suma a mano? NOTA: Indicar qué valores va tomando EAX en cada iteración del bucle, como los muestra la ventana Status»>Registers, en hexadecimal y decimal (con signo). Fijarse también en si se van activando los flags CF y OF o no tras cada suma. Indicar también qué valor muestra resultado si se vuelca con Data»>Memory como decimal (con signo) o unsigned (sin signo).
+
+| Iteracion  |  valor EAX | hexadecimal
+|:---:|:---:|:---:|
+| 0  |  0 | 0xffffffff |
+|  1 |  -1 | 0xffffffff |
+|  2 |  -2 | 0xfffffffe |
+|  3 |  -3 | 0xfffffffd |
 
 ####3 ¿Qué dirección se le ha asignado ala etiqueta suma? ¿Y a bucle? ¿Cómo se ha obtenido esa información?
 
