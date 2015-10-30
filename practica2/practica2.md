@@ -514,6 +514,11 @@ Al modificar el programa, el registro %ecx tiene el valor: 0x616cf48 que efictiv
  	saludo ocupa 28 bytes.
  	por lo tanto la seccion datos ocupa 32 bytes
 
+![p2-3](https://github.com/NAEL1/EC/blob/master/practica2/pr2-3.png)
+
+tal como se ha comentado vemos que saludo ocupa 28 bytes empezando en 0x804a01c por 0x48 "H" y terminando en 0x804a037 por 0x0a "LF o salto de linea"
+y longsaludo ocupa 4 bytes empezando en 0x804a038 y terminando en 0x804a03b
+
 ####5 Añadir dos volcados Data»>Memory dela variable longsaludo, uno como entero hexadecilmal, y otro como 4 bytes hex. Teniendo en cuenta lo mostrado en esos volcados... ¿Qué direcciones de memoria ocupa longsaludo? ¿Cuál byte está en la primera posición, el más o el menos significativo? ¿Los procesadores de la línea x86 usan el criterio del extremo mayor (bigendian) o menor (little»endian)? Razonar la respuesta
 
 ####6 ¿Cuántas posiciones de memoria ocupa la instrucción mov S1, %ebx? ¿Cómo se ha obtenido esa información? Indicar las posiciones concretas en hexadecimal.
