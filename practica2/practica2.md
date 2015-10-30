@@ -577,12 +577,12 @@ siengo 0b10 2 ya que 10 es la representacion en binario de 2 y 0x10 vale 16 ya q
 
 ####2 ¿Qué valor en hexadecimal se obtiene en resultado si se usa la lista de 3 elementos: .int Oxffffffff, Oxffffffff, Oxffffffff? ¿Por qué es diferente del que se obtiene haciendo la suma a mano? NOTA: Indicar qué valores va tomando EAX en cada iteración del bucle, como los muestra la ventana Status»>Registers, en hexadecimal y decimal (con signo). Fijarse también en si se van activando los flags CF y OF o no tras cada suma. Indicar también qué valor muestra resultado si se vuelca con Data»>Memory como decimal (con signo) o unsigned (sin signo).
 
-| Iteracion  |  valor EAX | hexadecimal
-|:---:|:---:|:---:|
-| 0  |  0 | 0xffffffff |
-|  1 |  -1 | 0xffffffff |
-|  2 |  -2 | 0xfffffffe |
-|  3 |  -3 | 0xfffffffd |
+| Iteracion  |  valor EAX | hexadecimal | Flags |
+|:---:|:---:|:---:| 
+| 0  |  0 | 0xffffffff | PF SF IF |
+|  1 |  -1 | 0xffffffff | CF AF SF IF |
+|  2 |  -2 | 0xfffffffe | CF AF SF IF | 
+|  3 |  -3 | 0xfffffffd | CF AF SF IF |
 
 ####3 ¿Qué dirección se le ha asignado ala etiqueta suma? ¿Y a bucle? ¿Cómo se ha obtenido esa información?
 
