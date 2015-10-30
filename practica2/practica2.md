@@ -519,18 +519,30 @@ Al modificar el programa, el registro %ecx tiene el valor: 0x616cf48 que efictiv
 tal como se ha comentado vemos que saludo ocupa 28 bytes empezando en 0x804a01c por 0x48 "H" y terminando en 0x804a037 por 0x0a "LF o salto de linea"
 y longsaludo ocupa 4 bytes empezando en 0x804a038 y terminando en 0x804a03b
 
+
+
 ####5 Añadir dos volcados Data»>Memory dela variable longsaludo, uno como entero hexadecilmal, y otro como 4 bytes hex. Teniendo en cuenta lo mostrado en esos volcados... ¿Qué direcciones de memoria ocupa longsaludo? ¿Cuál byte está en la primera posición, el más o el menos significativo? ¿Los procesadores de la línea x86 usan el criterio del extremo mayor (bigendian) o menor (little»endian)? Razonar la respuesta
+
+![p2-4](https://github.com/NAEL1/EC/blob/master/practica2/pr2-4.png)
+
+longlista ocupa direcciones de memoria que va desde 0x804a038 hasta  0x804a03b, el menos significativo es 0x804a038  y el mas significativo es 0x804a03b, los procesadores de linea x86 usan little endian , porque como se ve en longlista, la parte menos significativa se guarda en la posicion mas pequeña.
 
 ####6 ¿Cuántas posiciones de memoria ocupa la instrucción mov S1, %ebx? ¿Cómo se ha obtenido esa información? Indicar las posiciones concretas en hexadecimal.
 
-####7 ¿Qué sucede si se elimina del programa la primera instrucción int 0x80? ¿Y si se elimina la segunda? Razonar las respuestas
-si se elimina del programa la primera instrucción int 0x80 no se llamara a la funcion Write
+la operacion mov $1 , %ebx ocupa 5 bytes he obtenido esta informacion usando *objdump* :
+
+ 80483f2:	bb 01 00 00 00       	mov    $0x1,%ebx
+loas direcciones empiezan en 0x80483f2 y terminan en 0x80483f6
+
+####7 ¿Qué sucede si se elimina del programa la primera instrucción int 0x80? ¿Y si se elimina la segunda? Razonar las respuestas 
+
+si se elimina del programa la primera instrucción int 0x80 no se llamara a la funcion Write y si se elimina la segunda no se llamara a exit. porque 0x80 es el codigo de interrupcion para llamar al manejador(en linux es el mismo Kernel) para que ejecute una rutina.asi que el jernel examinara el registro %eax para saber que servicio es el solicitado.
 
 ####8 ¿Cuál es el número de la llamada al sistema READ (en kernel Linux 32bits)? ¿De dónde se ha obtenido esa información?
 
-mov $3 , %eax
+mov $3 , %eax 	número de la llamada al sistema READ
 mov $? , %ebx 	donde $? es el descriptor del fichero(por ejemplo $2 para el teclado)
-mov num, %ecx 	dinde num es el puntero al buffer deentrada
+mov num, %ecx 	donde num es el puntero al buffer deentrada
 mov $? , %edx 	donde $? es el tamaño  del buffer(por ejemplo para int seria $5 : 1 byte para el signo y 4 para el entero)
 int $0x80 	trampa de S.O.
 
