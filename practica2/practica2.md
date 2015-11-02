@@ -585,8 +585,15 @@ siengo 0b10 2 ya que 10 es la representacion en binario de 2 y 0x10 vale 16 ya q
 |  3 |  -3 | 0xfffffffd | CF AF SF IF |
 
 ####3 ¿Qué dirección se le ha asignado ala etiqueta suma? ¿Y a bucle? ¿Cómo se ha obtenido esa información?
+suma:0x70480d9
+resultado: 0x8049106
+
+![p2-5](https://github.com/NAEL1/EC/blob/master/practica2/pr2-5.png)
 
 ####4 ¿Para qué usa el procesador los registros EIP y ESP?
+
+*EIP*  es el contador del programa apunta a la siguiente operacion a ejecutar.
+*ESP* indice de pila  apunta al ultimo elemento introducido en la pila.
 
 ####5 ¿Cuál es el valor de ESP antes de ejecutar CALL, y cuál antes de ejecutar RET? ¿En cuánto se diferencian ambos valores? ¿Por qué? ¿Cuál de los dos valores de ESP apunta a algún dato de interés para nosotros? ¿Cuál es ese dato?
 
